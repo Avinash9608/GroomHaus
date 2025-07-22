@@ -76,6 +76,8 @@ const servicesData: Service[] = [
     price: 319,
     duration: 45,
     icon: <Hand className="size-8 text-accent transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />,
+    image: "https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/a3ec979b-652c-4f66-9f8a-2f3fef4e693d.png",
+    imageHint: "manicure pedicure"
   },
   {
     name: "Grooming Combo",
@@ -368,5 +370,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
