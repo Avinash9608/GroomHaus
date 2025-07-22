@@ -89,28 +89,35 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Header onBookNowClick={handleBookNowClick} />
       <main className="flex-grow">
-        <section id="home" className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center min-h-[80vh] py-24 md:py-32">
-          <div className="flex flex-col items-start gap-6 text-left">
-            <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter">
-              Modern Grooming, Perfected.
-            </h1>
-            <p className="max-w-xl text-lg md:text-xl text-foreground/80">
-              Experience the art of premium men's grooming. Book your appointment at Groom Haus for an unparalleled service.
-            </p>
-            <Button size="lg" className="font-bold text-lg px-8 py-6 bg-accent text-accent-foreground hover:bg-accent/90 transition-transform duration-300 hover:scale-105" onClick={handleBookNowClick}>
-              Book Your Experience
-            </Button>
-          </div>
-          <div className="relative h-96 lg:h-[500px] w-full group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/50 to-accent/50 rounded-3xl -rotate-3 group-hover:rotate-2 transition-transform duration-500 ease-in-out"></div>
+      <section
+          id="home"
+          className="relative flex items-center justify-center min-h-screen bg-black text-white"
+        >
+          <div className="absolute inset-0 z-0">
             <Image
-              src="https://placehold.co/800x600.png"
-              alt="Stylish man getting a haircut"
+              src="https://placehold.co/1200x800.png"
+              alt="Man getting a professional haircut"
               layout="fill"
               objectFit="cover"
-              className="rounded-3xl shadow-2xl z-10 rotate-1 group-hover:-rotate-1 transition-transform duration-500 ease-in-out"
-              data-ai-hint="man haircut"
+              className="opacity-40"
+              data-ai-hint="salon interior"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20"></div>
+          </div>
+          <div className="relative z-10 flex flex-col items-center gap-6 text-center px-4">
+            <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter animate-fade-in-down">
+              Experience Bespoke Grooming.
+            </h1>
+            <p className="max-w-2xl text-lg md:text-xl text-foreground/80 animate-fade-in-up">
+              Where tradition meets modern technique. We are dedicated to providing the highest quality of service for the discerning gentleman.
+            </p>
+            <Button
+              size="lg"
+              className="font-bold text-lg px-8 py-6 bg-accent text-accent-foreground hover:bg-accent/90 transition-transform duration-300 hover:scale-105 animate-fade-in-up"
+              onClick={handleBookNowClick}
+            >
+              Discover Your Style
+            </Button>
           </div>
         </section>
 
