@@ -475,8 +475,18 @@ export default function Home() {
           </div>
         </section>
         
-        <section id="faq" className="py-20 md:py-32">
-          <div className="container mx-auto px-4">
+        <section id="faq" className="py-20 md:py-32 relative">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1697307827834-a859a8eeaf50?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGZ1bGwlMjBoZCUyMHdhbGxwYXBlciUyMGdJUkx8ZW58MHx8MHx8fDA%3D"
+              alt="Abstract FAQ background"
+              fill
+              className="object-cover"
+              data-ai-hint="abstract floral"
+            />
+            <div className="absolute inset-0 bg-background/80" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h2 className="font-headline text-4xl md:text-5xl font-bold">Frequently Asked Questions</h2>
               <p className="text-lg text-foreground/70 mt-4 max-w-2xl mx-auto">
@@ -541,5 +551,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
