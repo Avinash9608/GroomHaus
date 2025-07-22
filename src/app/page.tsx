@@ -91,32 +91,35 @@ export default function Home() {
       <main className="flex-grow">
       <section
           id="home"
-          className="relative flex items-center justify-center min-h-screen bg-black text-white"
+          className="relative flex items-center justify-center min-h-screen bg-background text-white p-4"
         >
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGhhaXJjdXR8ZW58MHx8MHx8fDA%3D"
-              alt="Man getting a professional haircut"
-              fill
-              className="object-cover opacity-40"
-              data-ai-hint="salon interior"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20"></div>
-          </div>
-          <div className="relative z-10 flex flex-col items-center gap-6 text-center px-4">
-            <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter animate-fade-in-down">
-              Experience Bespoke Grooming.
-            </h1>
-            <p className="max-w-2xl text-lg md:text-xl text-foreground/80 animate-fade-in-up">
-              Where tradition meets modern technique. We are dedicated to providing the highest quality of service for the discerning gentleman.
-            </p>
-            <Button
-              size="lg"
-              className="font-bold text-lg px-8 py-6 bg-accent text-accent-foreground hover:bg-accent/90 transition-transform duration-300 hover:scale-105 animate-fade-in-up"
-              onClick={handleBookNowClick}
-            >
-              Discover Your Style
-            </Button>
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="flex flex-col items-start gap-6 text-left px-4">
+                <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter animate-fade-in-down">
+                    Experience Bespoke Grooming.
+                </h1>
+                <p className="max-w-2xl text-lg md:text-xl text-foreground/80 animate-fade-in-up">
+                    Where tradition meets modern technique. We are dedicated to providing the highest quality of service for the discerning gentleman.
+                </p>
+            </div>
+            <div className="relative z-10 flex flex-col items-center justify-center gap-6">
+                 <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl shadow-accent/20 border-8 border-primary animate-fade-in-up">
+                    <Image
+                    src="https://images.unsplash.com/photo-1648221122323-572c13a31663?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGhhaXJjdXR8ZW58MHx8MHx8fDA%3D"
+                    alt="Man with a stylish haircut"
+                    fill
+                    className="object-cover"
+                    data-ai-hint="man haircut"
+                    />
+                </div>
+                <Button
+                    size="lg"
+                    className="font-bold text-lg px-8 py-6 bg-accent text-accent-foreground hover:bg-accent/90 transition-transform duration-300 hover:scale-105 animate-fade-in-up mt-8"
+                    onClick={handleBookNowClick}
+                    >
+                    Discover Your Style
+                </Button>
+            </div>
           </div>
         </section>
 
