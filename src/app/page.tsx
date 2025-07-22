@@ -242,7 +242,7 @@ export default function Home() {
                         src={service.image}
                         alt={service.name}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110 blur-sm"
                         data-ai-hint={service.imageHint}
                       />
                       <div className="absolute inset-0 bg-black/50" />
