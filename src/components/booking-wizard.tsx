@@ -155,7 +155,7 @@ export function BookingWizard({ service: initialService }: BookingWizardProps) {
                     </div>
                     <div className="space-y-4 text-lg">
                         <div className="flex items-center gap-4">
-                            <Scissors className="text-accent" /> <strong>Service:</strong> {selectedService.name} (${selectedService.price})
+                            <Scissors className="text-accent" /> <strong>Service:</strong> {selectedService.name} (₹{selectedService.price})
                         </div>
                         <div className="flex items-center gap-4">
                            <CalendarIcon className="text-accent" /> <strong>Date:</strong> {selectedDate.toLocaleDateString()}

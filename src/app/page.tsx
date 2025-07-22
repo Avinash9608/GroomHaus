@@ -11,37 +11,65 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Scissors, Wind, Droplets, Users, Star, MapPin } from "lucide-react";
+import { Scissors, Wind, Droplets, Users, Star, MapPin, Sparkles, Paintbrush, Hand, Spade } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import Autoplay from "embla-carousel-autoplay";
 
 const servicesData: Service[] = [
   {
-    name: "Haircut & Style",
-    description: "Precision haircut followed by a professional wash and style.",
-    price: 50,
-    duration: 60,
+    name: "Haircut",
+    description: "A common basic haircut to keep you looking sharp.",
+    price: 65,
+    duration: 30,
     icon: <Scissors className="size-8 text-accent" />,
   },
   {
-    name: "Classic Razor Shave",
-    description: "A traditional hot towel and straight-razor shave.",
+    name: "Beard Trim/Grooming",
+    description: "Includes shaping and light trimming for a well-groomed beard.",
     price: 45,
-    duration: 45,
+    duration: 20,
+    icon: <Sparkles className="size-8 text-accent" />,
+  },
+  {
+    name: "Clean Shave",
+    description: "A classic clean shave for a smooth finish.",
+    price: 150,
+    duration: 30,
     icon: <Wind className="size-8 text-accent" />,
   },
   {
-    name: "Beard Trim",
-    description: "Shape, trim, and line up your beard to perfection.",
-    price: 30,
-    duration: 30,
+    name: "Hair Coloring",
+    description: "Hair coloring with premium dyes. Price varies by brand.",
+    price: 199,
+    duration: 60,
+    icon: <Paintbrush className="size-8 text-accent" />,
+  },
+  {
+    name: "Hair Spa",
+    description: "A premium treatment to rejuvenate your hair. Booking recommended.",
+    price: 1200,
+    duration: 90,
+    icon: <Spade className="size-8 text-accent" />,
+  },
+  {
+    name: "Basic Facial/Cleanup",
+    description: "Includes hydration, de-tan, charcoal, and more.",
+    price: 800,
+    duration: 60,
     icon: <Droplets className="size-8 text-accent" />,
   },
   {
-    name: "The Works",
-    description: "The ultimate grooming package: haircut, shave, and beard trim.",
-    price: 110,
-    duration: 120,
+    name: "Manicure/Pedicure",
+    description: "Essential hand and foot care for a polished look.",
+    price: 319,
+    duration: 45,
+    icon: <Hand className="size-8 text-accent" />,
+  },
+  {
+    name: "Grooming Combo",
+    description: "The essentials: haircut, beard trim, and a relaxing face massage.",
+    price: 499,
+    duration: 75,
     icon: <Users className="size-8 text-accent" />,
   },
 ];
@@ -212,7 +240,7 @@ export default function Home() {
                     </div>
                     <h3 className="font-headline text-2xl font-bold mb-2">{service.name}</h3>
                     <p className="text-foreground/70 mb-4 flex-grow">{service.description}</p>
-                    <p className="text-2xl font-bold text-accent mb-6">${service.price}</p>
+                    <p className="text-2xl font-bold text-accent mb-6">₹{service.price}</p>
                     <Button onClick={() => handleSelectService(service)} className="w-full font-bold bg-primary hover:bg-primary/80">
                       Select Service
                     </Button>
@@ -316,5 +344,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
