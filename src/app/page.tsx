@@ -14,6 +14,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Scissors, Wind, Droplets, Users, Star, MapPin, Sparkles, Paintbrush, Hand, Spade } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
 
 const servicesData: Service[] = [
   {
@@ -348,9 +349,11 @@ export default function Home() {
                     <div className="glass-card p-8 md:p-12">
                         <h3 className="font-headline text-3xl mb-6">Contact Info</h3>
                         <div className="space-y-4 text-lg">
-                            <p className="flex items-center gap-4"><MapPin className="text-accent"/>123 Luxury Lane, Metropolis, 10101</p>
-                            <p className="flex items-center gap-4">Email: contact@groomhaus.com</p>
-                            <p className="flex items-center gap-4">Phone: (123) 456-7890</p>
+                             <a href="https://www.google.com/maps/search/?api=1&query=804453+Lakhna" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 transition-colors hover:text-accent">
+                                <MapPin className="text-accent"/>Lakhna Sabhi Market 804453 Patna bihar
+                            </a>
+                            <a href="mailto:contact@groomhaus.com" className="flex items-center gap-4 transition-colors hover:text-accent">Email: contact@groomhaus.com</a>
+                            <a href="tel:1234567890" className="flex items-center gap-4 transition-colors hover:text-accent">Phone: (123) 456-7890</a>
                         </div>
                         <Separator className="my-8 bg-border/50" />
                         <h3 className="font-headline text-3xl mb-6">Opening Hours</h3>
@@ -361,7 +364,9 @@ export default function Home() {
                         </div>
                     </div>
                      <div className="relative h-96 w-full rounded-2xl overflow-hidden shadow-lg">
+                        <a href="https://www.google.com/maps/search/?api=1&query=804453+Lakhna" target="_blank" rel="noopener noreferrer">
                          <Image src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/45dab4a0-54ee-4f77-bb74-f6b582c912e0.png" fill className="object-cover" alt="Map location of Groom Haus" data-ai-hint="salon interior" />
+                        </a>
                     </div>
                 </div>
             </div>
