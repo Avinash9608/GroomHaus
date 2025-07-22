@@ -49,6 +49,8 @@ const servicesData: Service[] = [
     price: 199,
     duration: 60,
     icon: <Paintbrush className="size-8 text-accent transition-transform duration-300 group-hover:rotate-12" />,
+    image: "https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/517433bb-eedc-4544-8422-d13bb1e26ff5.png",
+    imageHint: "hair coloring"
   },
   {
     name: "Hair Spa",
@@ -362,3 +364,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
