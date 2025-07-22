@@ -17,7 +17,7 @@ import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Input } from "@/components/ui/input";
+import { CommunitySection } from "@/components/community-section";
 
 
 const servicesData: Service[] = [
@@ -491,32 +491,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section id="newsletter" className="py-20 md:py-32 bg-primary/10">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold">Stay Updated</h2>
-              <p className="text-lg text-foreground/70 mt-4 max-w-2xl mx-auto">
-                Subscribe to our newsletter for the latest news, offers, and grooming tips.
-              </p>
-            </div>
-            <form className="max-w-xl mx-auto flex items-center glass-card p-2 rounded-full">
-                <Input
-                    type="email"
-                    placeholder="Enter your email address"
-                    className="bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 text-base flex-grow"
-                    aria-label="Email for newsletter"
-                />
-                <Button
-                    type="submit"
-                    size="lg"
-                    className="rounded-full font-bold text-lg px-8 py-6 bg-accent text-accent-foreground hover:bg-accent/90 transition-transform duration-300 hover:scale-105 shrink-0"
-                >
-                    Subscribe
-                </Button>
-            </form>
-          </div>
-        </section>
-
+        <CommunitySection />
       </main>
       <Footer />
     </div>

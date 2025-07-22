@@ -65,3 +65,161 @@ body {
 .glass-card {
   @apply bg-card/60 backdrop-blur-lg border border-white/10 rounded-2xl shadow-lg;
 }
+
+#community-section {
+  font-family: 'Outfit', sans-serif;
+  min-height: 40rem;
+  color: #fff;
+  padding-block: min(10vh, 3rem);
+  background: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+    no-repeat 50% 50% / cover;
+}
+
+#community-section .community-container {
+  width: calc(min(90rem, 90%));
+  margin-inline: auto;
+}
+
+@media screen and (min-width: 41.25rem) {
+  #community-section .community-container {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-height: 700px) {
+  #community-section .community-container {
+    height: auto;
+  }
+}
+
+#community-section .community-items {
+  place-content: center;
+  place-items: center;
+}
+
+@media screen and (min-width: 41.25rem) {
+  #community-section .community-items {
+    display: grid;
+    grid-template-areas:
+      'heading heading heading heading'
+      'box-1 box-1 transparent transparent'
+      'box-3 box-4 box-5 box-6'
+      'input input input input';
+  }
+}
+
+@media screen and (min-width: 61.875rem) {
+  #community-section .community-items {
+    grid-template-areas:
+      'heading box-1 transparent .'
+      'box-3 box-4 box-5 box-6'
+      'input input input input';
+  }
+}
+
+#community-section h2 {
+  grid-area: heading;
+  text-align: left;
+  width: 100%;
+  padding: 0 1.25rem 1.25rem 0;
+  font-size: clamp(1.5625rem, 1.1731rem + 1.6615vw, 3.25rem);
+  letter-spacing: 0.031rem;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+#community-section .community-box {
+  width: 100%;
+  height: calc(10rem + 5vw);
+  background: #537052;
+  display: flex;
+  align-items: center;
+  border: 0.125rem solid #537052;
+}
+
+#community-section .community-box > span {
+  padding: 20px;
+  font-size: clamp(0.9rem, 0.72rem + 0.768vw, 1.2rem);
+}
+
+#community-section .community-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#community-section .community-items > div:nth-of-type(1) {
+  grid-area: box-1;
+}
+
+#community-section .community-items > div:nth-of-type(2) {
+  background: transparent;
+  grid-area: transparent;
+  border-bottom: 0;
+}
+
+@media screen and (max-width: 41.24rem) {
+  #community-section .community-items > div:nth-of-type(1),
+  #community-section .community-items > div:nth-of-type(2) {
+    display: none;
+  }
+}
+
+#community-section .community-items > div:nth-of-type(3) {
+  grid-area: box-3;
+}
+#community-section .community-items > div:nth-of-type(4) {
+  grid-area: box-4;
+}
+#community-section .community-items > div:nth-of-type(5) {
+  grid-area: box-5;
+}
+#community-section .community-items > div:nth-of-type(6) {
+  grid-area: box-6;
+}
+
+#community-section .email-input-wrapper {
+  grid-area: input;
+  width: 100%;
+  position: relative;
+  margin-top: 2.5rem;
+}
+
+@media screen and (min-width: 41.25rem) {
+  #community-section .email-input-wrapper {
+    max-width: 45%;
+  }
+}
+
+#community-section .email-input-icon {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+#community-section .email-input-icon img {
+  width: 1.563rem;
+  filter: invert(100%);
+}
+
+#community-section .email-input {
+  width: 100%;
+  padding-left: 1.563rem;
+  padding-right: 3.5rem; /* space for icon */
+  border: none;
+  background: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0.25rem 1.875rem rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.125rem);
+  -webkit-backdrop-filter: blur(0.125rem);
+  border: 0.063rem solid rgba(255, 255, 255, 0.3);
+  padding-block: 0.938rem;
+  border-radius: 10rem;
+  color: #fff;
+}
+
+#community-section .email-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+}
