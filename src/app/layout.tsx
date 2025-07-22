@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Caveat } from "next/font/google";
+import { Caveat, Outfit } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
@@ -39,3 +39,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+    
