@@ -337,8 +337,18 @@ export default function Home() {
 
         <StoriesSection />
 
-        <section id="services" ref={servicesRef} className="py-20 md:py-32">
-          <div className="container mx-auto px-4">
+        <section id="services" ref={servicesRef} className="relative py-20 md:py-32">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDAyfHx3YWxscGFwZXIlMjA0a3xlbnwwfHwwfHx8MA%3D%3D"
+              alt="Abstract services background"
+              fill
+              className="object-cover"
+              data-ai-hint="abstract texture"
+            />
+            <div className="absolute inset-0 bg-background/80" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h2 className="font-headline text-4xl md:text-5xl font-bold">Our Services</h2>
               <p className="text-lg text-foreground/70 mt-4 max-w-2xl mx-auto">
