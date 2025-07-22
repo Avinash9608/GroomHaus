@@ -147,8 +147,8 @@ export default function Home() {
             <div className="flex flex-col items-start gap-6 text-left px-4 h-48 md:h-64">
                <Carousel
                 plugins={[autoplayPlugin.current]}
-                onmouseenter={autoplayPlugin.current.stop}
-                onmouseleave={autoplayPlugin.current.reset}
+                onMouseEnter={autoplayPlugin.current.stop}
+                onMouseLeave={autoplayPlugin.current.reset}
                 setApi={(api) => {
                     api?.on("select", () => {
                         setCurrentSlide(api.selectedScrollSnap());
@@ -316,5 +316,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
