@@ -20,6 +20,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { CommunitySection } from "@/components/community-section";
 import { StoriesSection } from "@/components/stories-section";
+import { SafeImage } from "@/components/ui/safe-image";
 
 
 const servicesData: Service[] = [
@@ -47,7 +48,7 @@ const servicesData: Service[] = [
     price: 150,
     duration: 30,
     icon: <Wind className="size-8 text-accent transition-transform duration-300 group-hover:translate-x-2" />,
-    image: "https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/df792a7b-bff6-4067-a93d-d22b01831cb2.png",
+    image: "https://images.unsplash.com/photo-1533808232502-bee53575c3af?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGNsZWFuJTIwc2hhdmV8ZW58MHx8MHx8fDA%3D",
     imageHint: "classic shave"
   },
   {
@@ -374,13 +375,23 @@ export default function Home() {
                       <Card className="glass-card overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/20 relative h-full flex flex-col">
                         {service.image && (
                           <>
-                            <Image
-                              src={service.image}
-                              alt={service.name}
-                              fill
-                              className="object-cover transition-transform duration-500 group-hover:scale-110 blur-sm"
-                              data-ai-hint={service.imageHint}
-                            />
+                            {service.image.includes('user-gen-media-assets.s3.amazonaws.com') ? (
+                              <SafeImage
+                                src={service.image}
+                                alt={service.name}
+                                fill
+                                className="object-cover transition-transform duration-500 group-hover:scale-110 blur-sm"
+                                data-ai-hint={service.imageHint}
+                              />
+                            ) : (
+                              <Image
+                                src={service.image}
+                                alt={service.name}
+                                fill
+                                className="object-cover transition-transform duration-500 group-hover:scale-110 blur-sm"
+                                data-ai-hint={service.imageHint}
+                              />
+                            )}
                             <div className="absolute inset-0 bg-black/50" />
                           </>
                         )}
@@ -566,7 +577,11 @@ export default function Home() {
               </div>
               <div className="w-full h-96 rounded-2xl overflow-hidden shadow-lg">
                 <a href="https://www.google.com/maps/search/?api=1&query=Lakhna+Sabji+Market+804453+Patna" target="_blank" rel="noopener noreferrer">
-                  <Image src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/52c5be1e-8461-45f4-9872-f9ec0cfedbda.png" width={800} height={600} className="w-full h-full object-cover" alt="Map location of Groom Haus" data-ai-hint="salon exterior" />
+                  {"https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/52c5be1e-8461-45f4-9872-f9ec0cfedbda.png".includes('user-gen-media-assets.s3.amazonaws.com') ? (
+                    <SafeImage src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/52c5be1e-8461-45f4-9872-f9ec0cfedbda.png" width={800} height={600} className="w-full h-full object-cover" alt="Map location of Groom Haus" data-ai-hint="salon exterior" />
+                  ) : (
+                    <Image src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/52c5be1e-8461-45f4-9872-f9ec0cfedbda.png" width={800} height={600} className="w-full h-full object-cover" alt="Map location of Groom Haus" data-ai-hint="salon exterior" />
+                  )}
                 </a>
               </div>
             </div>

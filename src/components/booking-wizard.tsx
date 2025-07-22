@@ -5,8 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { CheckCircle, Calendar as CalendarIcon, Clock, Scissors, User } from "lucide-react";
+import { CheckCircle, Calendar as CalendarIcon, Clock, Scissors, User, Lock, XCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
+import { useCallback } from "react";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 
 export interface Service {
   name: string;
@@ -33,6 +36,20 @@ export function BookingWizard({ service: initialService }: BookingWizardProps) {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const { toast } = useToast();
+  const router = useRouter();
+  const isLoggedIn = typeof window !== "undefined" && !!localStorage.getItem("user");
+  const [occupiedSlots, setOccupiedSlots] = useState<string[]>([]);
+
+  const fetchOccupiedSlots = useCallback(async (serviceName: string, date: Date | undefined) => {
+    if (!date) return;
+    const res = await fetch(`/api/bookings?date=${encodeURIComponent(date.toISOString())}`);
+    if (res.ok) {
+      const data = await res.json();
+      setOccupiedSlots(data.bookings.map((b: any) => b.time));
+    } else {
+      setOccupiedSlots([]);
+    }
+  }, []);
 
   useEffect(() => {
     if (initialService) {
@@ -45,6 +62,14 @@ export function BookingWizard({ service: initialService }: BookingWizardProps) {
     setSelectedDate(undefined);
     setSelectedTime(null);
   }, [initialService]);
+
+  useEffect(() => {
+    if (selectedDate) {
+      fetchOccupiedSlots("", selectedDate);
+    } else {
+      setOccupiedSlots([]);
+    }
+  }, [selectedDate, fetchOccupiedSlots]);
 
   const progress = useMemo(() => {
     if (step === 4) return 100;
@@ -63,17 +88,39 @@ export function BookingWizard({ service: initialService }: BookingWizardProps) {
     setStep(4);
   };
   
-  const handleBookingConfirm = () => {
-    toast({
+  const handleBookingConfirm = async () => {
+    if (!isLoggedIn) {
+      router.push("/login");
+      return;
+    }
+    // Save booking to backend
+    const res = await fetch("/api/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        service: selectedService?.name,
+        date: selectedDate?.toISOString(),
+        time: selectedTime,
+      }),
+    });
+    if (res.ok) {
+      toast({
         title: "Booking Confirmed!",
         description: `Your appointment for ${selectedService?.name} on ${selectedDate?.toLocaleDateString()} at ${selectedTime} is confirmed.`,
         variant: "default",
-    });
-    // Reset state
-    setStep(1);
-    setSelectedService(null);
-    setSelectedDate(undefined);
-    setSelectedTime(null);
+      });
+      setStep(1);
+      setSelectedService(null);
+      setSelectedDate(undefined);
+      setSelectedTime(null);
+    } else {
+      const result = await res.json();
+      toast({
+        title: "Booking Failed",
+        description: result.error || "Could not book slot.",
+        variant: "destructive",
+      });
+    }
   }
 
   const resetWizard = () => {
@@ -81,6 +128,16 @@ export function BookingWizard({ service: initialService }: BookingWizardProps) {
      setSelectedService(null);
      setSelectedDate(undefined);
      setSelectedTime(null);
+  }
+
+  if (!isLoggedIn) {
+    return (
+      <Card className="glass-card p-8 text-center">
+        <h3 className="font-headline text-2xl mb-4">Login Required</h3>
+        <p className="text-foreground/70 mb-4">Please login or register to book a slot.</p>
+        <Button onClick={() => router.push("/login")}>Login / Register</Button>
+      </Card>
+    );
   }
 
   if (!initialService) {
@@ -128,25 +185,47 @@ export function BookingWizard({ service: initialService }: BookingWizardProps) {
         )}
 
         {step === 3 && (
-            <div className="text-center animate-fade-in">
-                <h3 className="text-3xl font-headline mb-6">
-                    Available Times for {selectedDate?.toLocaleDateString()}
-                </h3>
-                <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                    {timeSlots.map(time => (
-                        <Button 
-                            key={time}
-                            variant="outline" 
-                            className="p-6 text-lg font-bold border-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-                            onClick={() => handleTimeSelect(time)}
-                        >
-                            {time}
-                        </Button>
-                    ))}
+  <TooltipProvider>
+    <div className="text-center animate-fade-in">
+      <h3 className="text-3xl font-headline mb-6">
+        Available Times for {selectedDate?.toLocaleDateString()}
+      </h3>
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        {timeSlots.map(time => {
+          const isOccupied = occupiedSlots.includes(time);
+          return isOccupied ? (
+            <Tooltip key={time}>
+              <TooltipTrigger asChild>
+                <div className="relative group">
+                  <Button
+                    variant="secondary"
+                    className="p-6 text-lg font-bold border-2 bg-red-100 text-red-600 border-red-300 opacity-80 cursor-not-allowed flex flex-col items-center gap-1 group-hover:bg-red-200 transition-all duration-300"
+                    disabled
+                  >
+                    <XCircle className="w-6 h-6 mb-1 text-red-400" />
+                    <span>{time}</span>
+                    <span className="text-xs font-semibold mt-1">Occupied</span>
+                  </Button>
                 </div>
-                 <Button variant="ghost" onClick={() => setStep(2)} className="mt-8">Back to Calendar</Button>
-            </div>
-        )}
+              </TooltipTrigger>
+              <TooltipContent side="top">This slot is already booked</TooltipContent>
+            </Tooltip>
+          ) : (
+            <Button
+              key={time}
+              variant="outline"
+              className="p-6 text-lg font-bold border-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+              onClick={() => handleTimeSelect(time)}
+            >
+              {time}
+            </Button>
+          );
+        })}
+      </div>
+      <Button variant="ghost" onClick={() => setStep(2)} className="mt-8">Back to Calendar</Button>
+    </div>
+  </TooltipProvider>
+)}
         
         {step === 4 && selectedService && selectedDate && selectedTime && (
             <div className="text-center animate-fade-in">

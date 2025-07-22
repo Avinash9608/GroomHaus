@@ -13,6 +13,7 @@ import {
 import { Button } from "./ui/button";
 import React from "react";
 import Autoplay from "embla-carousel-autoplay";
+import { SafeImage } from "@/components/ui/safe-image";
 
 const stories = [
   {
@@ -80,15 +81,25 @@ export function StoriesSection() {
                 <div className="p-1">
                   <Card className="glass-card overflow-hidden group h-full flex flex-col">
                     <CardContent className="p-6 text-center flex flex-col items-center flex-grow">
-                        <div className="relative w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-primary shadow-lg">
-                           <Image
-                                src={story.image}
-                                alt={story.headline}
-                                fill
-                                className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                data-ai-hint={story.hint}
-                            />
-                        </div>
+                      <div className="relative w-40 h-40 rounded-full overflow-hidden mb-6 border-4 border-primary shadow-lg">
+                        {story.image.includes('user-gen-media-assets.s3.amazonaws.com') ? (
+                          <SafeImage
+                            src={story.image}
+                            alt={story.headline}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            data-ai-hint={story.hint}
+                          />
+                        ) : (
+                          <Image
+                            src={story.image}
+                            alt={story.headline}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            data-ai-hint={story.hint}
+                          />
+                        )}
+                      </div>
                       <h3 className="font-headline text-2xl font-bold mb-3">{story.headline}</h3>
                       <p className="text-foreground/70 italic mb-6 flex-grow">"{story.excerpt}"</p>
                       <Button variant="outline" className="mt-auto border-accent text-accent hover:bg-accent hover:text-accent-foreground">
