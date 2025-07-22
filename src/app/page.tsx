@@ -58,6 +58,8 @@ const servicesData: Service[] = [
     price: 1200,
     duration: 90,
     icon: <Spade className="size-8 text-accent transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />,
+    image: "https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/db7cdd03-a9e6-4d10-947e-611bf6a794f7.png",
+    imageHint: "hair spa treatment"
   },
   {
     name: "Basic Facial/Cleanup",
@@ -364,5 +366,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
