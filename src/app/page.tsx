@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -387,8 +388,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="booking" ref={bookingRef} className="py-20 md:py-32 bg-primary/10">
-          <div className="container mx-auto px-4">
+        <section id="booking" ref={bookingRef} className="py-20 md:py-32 relative">
+           <div className="absolute inset-0 z-0">
+            <Image
+              src="https://plus.unsplash.com/premium_photo-1669981123704-5836330e3ddd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTczfHx3YWxscGFwZXIlMjA0a3xlbnwwfHwwfHx8MA%3D%3D"
+              alt="Abstract booking background"
+              fill
+              className="object-cover"
+              data-ai-hint="abstract background"
+            />
+            <div className="absolute inset-0 bg-background/80" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h2 className="font-headline text-4xl md:text-5xl font-bold">Book Your Slot</h2>
               <p className="text-lg text-foreground/70 mt-4 max-w-2xl mx-auto">
@@ -510,3 +521,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
