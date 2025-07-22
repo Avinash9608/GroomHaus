@@ -11,6 +11,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "./ui/button";
+import React from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 const stories = [
   {
@@ -40,6 +42,9 @@ const stories = [
 ];
 
 export function StoriesSection() {
+    const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
   return (
     <section id="stories" className="relative py-20 md:py-32 bg-background">
        <div className="absolute inset-0 z-0">
@@ -64,6 +69,9 @@ export function StoriesSection() {
             align: "start",
             loop: true,
           }}
+          plugins={[plugin.current]}
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
           className="w-full"
         >
           <CarouselContent className="-ml-4">
