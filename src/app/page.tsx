@@ -361,7 +361,7 @@ export default function Home() {
                         </div>
                     </div>
                      <div className="relative h-96 w-full rounded-2xl overflow-hidden shadow-lg">
-                         <Image src="https://placehold.co/600x400.png" fill className="object-cover" alt="Map location of Groom Haus" data-ai-hint="city map" />
+                         <Image src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/45dab4a0-54ee-4f77-bb74-f6b582c912e0.png" fill className="object-cover" alt="Map location of Groom Haus" data-ai-hint="salon interior" />
                     </div>
                 </div>
             </div>
