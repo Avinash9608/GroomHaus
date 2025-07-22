@@ -31,6 +31,8 @@ const servicesData: Service[] = [
     price: 45,
     duration: 20,
     icon: <Sparkles className="size-8 text-accent transition-transform duration-300 group-hover:scale-125 group-hover:animate-pulse" />,
+    image: "https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/07268d5e-baa8-462e-9189-59bacd382b3f.png",
+    imageHint: "beard grooming"
   },
   {
     name: "Clean Shave",
