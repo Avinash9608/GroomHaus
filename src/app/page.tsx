@@ -18,6 +18,7 @@ import Link from "next/link";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { CommunitySection } from "@/components/community-section";
+import { StoriesSection } from "@/components/stories-section";
 
 
 const servicesData: Service[] = [
@@ -333,6 +334,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <StoriesSection />
 
         <section id="services" ref={servicesRef} className="py-20 md:py-32">
           <div className="container mx-auto px-4">
