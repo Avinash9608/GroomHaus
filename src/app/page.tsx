@@ -95,7 +95,7 @@ export default function Home() {
         >
           <div className="absolute inset-0 z-0">
             <Image
-              src="https://placehold.co/1200x800.png"
+              src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGhhaXJjdXR8ZW58MHx8MHx8fDA%3D"
               alt="Man getting a professional haircut"
               layout="fill"
               objectFit="cover"
