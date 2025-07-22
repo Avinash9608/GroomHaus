@@ -261,8 +261,12 @@ export default function Home() {
     servicesRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
   
-  const autoplayPlugin = useRef(
+  const heroAutoplay = useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
+
+  const servicesAutoplay = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
   );
 
   return (
@@ -287,9 +291,9 @@ export default function Home() {
           <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
             <div className="flex flex-col items-start gap-6 text-left px-4 h-48 md:h-64">
                <Carousel
-                plugins={[autoplayPlugin.current]}
-                onMouseEnter={autoplayPlugin.current.stop}
-                onMouseLeave={autoplayPlugin.current.reset}
+                plugins={[heroAutoplay.current]}
+                onMouseEnter={heroAutoplay.current.stop}
+                onMouseLeave={heroAutoplay.current.reset}
                 setApi={(api) => {
                     api?.on("select", () => {
                         setCurrentSlide(api.selectedScrollSnap());
@@ -356,35 +360,49 @@ export default function Home() {
                 Indulge in our curated selection of grooming services, designed for the modern gentleman.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {servicesData.map((service) => (
-                <Card key={service.name} className="glass-card overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/20 relative">
-                  {service.image && (
-                    <>
-                      <Image
-                        src={service.image}
-                        alt={service.name}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110 blur-sm"
-                        data-ai-hint={service.imageHint}
-                      />
-                      <div className="absolute inset-0 bg-black/50" />
-                    </>
-                  )}
-                  <CardContent className="p-6 flex flex-col items-center text-center relative z-10">
-                    <div className="p-4 bg-primary/50 rounded-full mb-6 transition-transform duration-300 group-hover:scale-110">
-                      {service.icon}
+            <Carousel 
+              opts={{ loop: true, align: "start" }} 
+              plugins={[servicesAutoplay.current]}
+              onMouseEnter={servicesAutoplay.current.stop}
+              onMouseLeave={servicesAutoplay.current.reset}
+              className="max-w-md mx-auto md:max-w-2xl lg:max-w-4xl"
+            >
+              <CarouselContent>
+                {servicesData.map((service) => (
+                  <CarouselItem key={service.name} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-2 h-full">
+                      <Card className="glass-card overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/20 relative h-full flex flex-col">
+                        {service.image && (
+                          <>
+                            <Image
+                              src={service.image}
+                              alt={service.name}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-110 blur-sm"
+                              data-ai-hint={service.imageHint}
+                            />
+                            <div className="absolute inset-0 bg-black/50" />
+                          </>
+                        )}
+                        <CardContent className="p-6 flex flex-col items-center text-center relative z-10 flex-grow">
+                          <div className="p-4 bg-primary/50 rounded-full mb-6 transition-transform duration-300 group-hover:scale-110">
+                            {service.icon}
+                          </div>
+                          <h3 className="font-headline text-2xl font-bold mb-2">{service.name}</h3>
+                          <p className="text-foreground/70 mb-4 flex-grow">{service.description}</p>
+                          <p className="text-2xl font-bold text-accent mb-6">₹{service.price}</p>
+                          <Button onClick={() => handleSelectService(service)} className="w-full font-bold bg-primary hover:bg-primary/80 mt-auto">
+                            Select Service
+                          </Button>
+                        </CardContent>
+                      </Card>
                     </div>
-                    <h3 className="font-headline text-2xl font-bold mb-2">{service.name}</h3>
-                    <p className="text-foreground/70 mb-4 flex-grow">{service.description}</p>
-                    <p className="text-2xl font-bold text-accent mb-6">₹{service.price}</p>
-                    <Button onClick={() => handleSelectService(service)} className="w-full font-bold bg-primary hover:bg-primary/80">
-                      Select Service
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex"/>
+              <CarouselNext className="hidden md:flex"/>
+            </Carousel>
           </div>
         </section>
 
@@ -561,3 +579,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
