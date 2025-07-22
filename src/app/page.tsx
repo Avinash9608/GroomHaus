@@ -101,14 +101,14 @@ const testimonials = [
   {
     name: "John D.",
     avatar: "JD",
-    image: "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFufGVufDB8fDB8fHww",
+    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww",
     hint: "man portrait",
     text: "The best haircut I've ever had. The attention to detail is unmatched. I'll be a regular for sure.",
   },
   {
     name: "Mike S.",
     avatar: "MS",
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww",
+    image: "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFufGVufDB8fDB8fHww",
     hint: "smiling man",
     text: "Truly a premium experience from start to finish. The booking was seamless and the service was top-notch.",
   },
@@ -510,39 +510,49 @@ export default function Home() {
           </div>
         </section>
         
-        <section id="contact" className="py-20 md:py-32">
-            <div className="container mx-auto px-4">
-                 <div className="text-center mb-16">
-                    <h2 className="font-headline text-4xl md:text-5xl font-bold">Visit Us</h2>
-                    <p className="text-lg text-foreground/70 mt-4 max-w-2xl mx-auto">
-                        Find us in the heart of the city. We look forward to welcoming you.
-                    </p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div className="glass-card p-8 md:p-12">
-                        <h3 className="font-headline text-3xl mb-6">Contact Info</h3>
-                        <div className="space-y-4 text-lg">
-                             <a href="https://www.google.com/maps/search/?api=1&query=Lakhna+Sabji+Market+804453+Patna" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 transition-colors hover:text-accent">
-                                <MapPin className="text-accent"/>Lakhna Sabji Market 804453 Patna
-                            </a>
-                            <a href="mailto:contact@groomhaus.com" className="flex items-center gap-4 transition-colors hover:text-accent">Email: contact@groomhaus.com</a>
-                            <a href="tel:1234567890" className="flex items-center gap-4 transition-colors hover:text-accent">Phone: (123) 456-7890</a>
-                        </div>
-                        <Separator className="my-8 bg-border/50" />
-                        <h3 className="font-headline text-3xl mb-6">Opening Hours</h3>
-                        <div className="space-y-2 text-lg">
-                            <p>Monday - Friday: 9am - 7pm</p>
-                            <p>Saturday: 10am - 6pm</p>
-                            <p>Sunday: Closed</p>
-                        </div>
-                    </div>
-                     <div className="w-full h-full rounded-2xl overflow-hidden shadow-lg">
-                        <a href="https://www.google.com/maps/search/?api=1&query=Lakhna+Sabji+Market+804453+Patna" target="_blank" rel="noopener noreferrer">
-                         <Image src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/52c5be1e-8461-45f4-9872-f9ec0cfedbda.png" width={800} height={600} className="w-full h-full object-cover" alt="Map location of Groom Haus" data-ai-hint="salon exterior" />
-                        </a>
-                    </div>
-                </div>
+        <section id="contact" className="py-20 md:py-32 relative">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1650146239435-97283c2854aa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGZ1bGwlMjBoZCUyMG1hcCUyMHdvcmxkfGVufDB8fDB8fHww"
+              alt="Abstract world map background"
+              fill
+              className="object-cover"
+              data-ai-hint="world map"
+            />
+            <div className="absolute inset-0 bg-background/80" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold">Visit Us</h2>
+              <p className="text-lg text-foreground/70 mt-4 max-w-2xl mx-auto">
+                Find us in the heart of the city. We look forward to welcoming you.
+              </p>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="glass-card p-8 md:p-12">
+                <h3 className="font-headline text-3xl mb-6">Contact Info</h3>
+                <div className="space-y-4 text-lg">
+                  <a href="https://www.google.com/maps/search/?api=1&query=Lakhna+Sabji+Market+804453+Patna" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 transition-colors hover:text-accent">
+                    <MapPin className="text-accent"/>Lakhna Sabji Market 804453 Patna
+                  </a>
+                  <a href="mailto:contact@groomhaus.com" className="flex items-center gap-4 transition-colors hover:text-accent">Email: contact@groomhaus.com</a>
+                  <a href="tel:1234567890" className="flex items-center gap-4 transition-colors hover:text-accent">Phone: (123) 456-7890</a>
+                </div>
+                <Separator className="my-8 bg-border/50" />
+                <h3 className="font-headline text-3xl mb-6">Opening Hours</h3>
+                <div className="space-y-2 text-lg">
+                  <p>Monday - Friday: 9am - 7pm</p>
+                  <p>Saturday: 10am - 6pm</p>
+                  <p>Sunday: Closed</p>
+                </div>
+              </div>
+              <div className="w-full h-96 rounded-2xl overflow-hidden shadow-lg">
+                <a href="https://www.google.com/maps/search/?api=1&query=Lakhna+Sabji+Market+804453+Patna" target="_blank" rel="noopener noreferrer">
+                  <Image src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/52c5be1e-8461-45f4-9872-f9ec0cfedbda.png" width={800} height={600} className="w-full h-full object-cover" alt="Map location of Groom Haus" data-ai-hint="salon exterior" />
+                </a>
+              </div>
+            </div>
+          </div>
         </section>
 
         <CommunitySection />
