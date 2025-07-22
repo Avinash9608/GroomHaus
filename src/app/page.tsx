@@ -15,6 +15,9 @@ import { Scissors, Wind, Droplets, Users, Star, MapPin, Sparkles, Paintbrush, Ha
 import { Separator } from "@/components/ui/separator";
 import Autoplay from "embla-carousel-autoplay";
 import Link from "next/link";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
 
 const servicesData: Service[] = [
   {
@@ -147,6 +150,96 @@ const heroSlides = [
     hint: "modern hairstyle"
   },
 ]
+
+const faqData = [
+  {
+    question: "Where is Kundan Hair Cut Salon located?",
+    answer: <p>We are conveniently located in the heart of the city, making it easy for you to visit during your daily routine.</p>,
+  },
+  {
+    question: "What services does Kundan Hair Cut Salon provide?",
+    answer: (
+      <ul className="list-disc pl-6 space-y-1">
+        <li>Haircuts</li>
+        <li>Beard trimming/shaving</li>
+        <li>Hair coloring</li>
+        <li>Hair spa</li>
+        <li>Face massage and facials</li>
+        <li>Manicure and pedicure (for men)</li>
+        <li>Combo grooming packages</li>
+      </ul>
+    ),
+  },
+  {
+    question: "What are your most popular services and their prices?",
+    answer: (
+      <div>
+        <p className="mb-4">Here are some of our most requested grooming services with typical pricing:</p>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Service</TableHead>
+              <TableHead className="text-right">Price (₹)</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow><TableCell>Haircut</TableCell><TableCell className="text-right">65</TableCell></TableRow>
+            <TableRow><TableCell>Beard Trim/Shave</TableCell><TableCell className="text-right">45</TableCell></TableRow>
+            <TableRow><TableCell>Haircut + Beard Combo</TableCell><TableCell className="text-right">100</TableCell></TableRow>
+            <TableRow><TableCell>Hair Coloring (Men)</TableCell><TableCell className="text-right">199+</TableCell></TableRow>
+            <TableRow><TableCell>Hair Spa</TableCell><TableCell className="text-right">1,200+</TableCell></TableRow>
+            <TableRow><TableCell>Face Massage (10 min)</TableCell><TableCell className="text-right">149–200</TableCell></TableRow>
+            <TableRow><TableCell>Basic Facial/Cleanup</TableCell><TableCell className="text-right">Up to 800</TableCell></TableRow>
+            <TableRow><TableCell>Manicure/Pedicure</TableCell><TableCell className="text-right">319+</TableCell></TableRow>
+            <TableRow><TableCell>Grooming Combo (Hair+Beard+Facial)</TableCell><TableCell className="text-right">600–800</TableCell></TableRow>
+          </TableBody>
+        </Table>
+        <p className="text-sm text-foreground/70 mt-2">*Actual prices may vary depending on service choices and stylist experience.</p>
+      </div>
+    ),
+  },
+  {
+    question: "Do you offer grooming combos?",
+    answer: <p>Yes, we have value-packed grooming combos that include haircuts, beard trims, facials, massages, and more—saving you both time and money.</p>,
+  },
+  {
+    question: "Do I need to make an appointment?",
+    answer: <p>Walk-in clients are always welcome. However, appointments are recommended for combo packages or premium services to ensure availability.</p>,
+  },
+  {
+    question: "What are your opening hours?",
+    answer: <p>We are open daily. Please call or visit to confirm our current timings.</p>,
+  },
+  {
+    question: "Is the salon suitable for children and seniors?",
+    answer: <p>Yes, we welcome boys and men of all ages.</p>,
+  },
+  {
+    question: "How does Kundan Hair Cut Salon ensure cleanliness?",
+    answer: <p>We use fresh towels, sanitize tools after every client, and follow strict hygiene protocols to ensure your safety and comfort.</p>,
+  },
+  {
+    question: "Do you offer any discounts or loyalty programs?",
+    answer: <p>Combo packages are already discounted. Periodic promotions and loyalty programs may also be available—ask at the counter or follow our updates.</p>,
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer: <p>We accept cash and most major digital payment options (e.g., UPI, Paytm).</p>,
+  },
+  {
+    question: "Do you provide home service?",
+    answer: <p>We currently provide services only at our salon location.</p>,
+  },
+  {
+    question: "Can I request a specific stylist?",
+    answer: <p>Yes, you can request your preferred stylist when booking or on arrival, subject to their availability.</p>,
+  },
+  {
+    question: "What should I do if I’m unsatisfied with a service?",
+    answer: <p>Please let us know immediately—we strive for customer satisfaction and will do our best to resolve any concerns.</p>,
+  },
+];
+
 
 export default function Home() {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
@@ -334,6 +427,31 @@ export default function Home() {
               <CarouselPrevious className="hidden md:flex"/>
               <CarouselNext className="hidden md:flex"/>
             </Carousel>
+          </div>
+        </section>
+        
+        <section id="faq" className="py-20 md:py-32">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold">Frequently Asked Questions</h2>
+              <p className="text-lg text-foreground/70 mt-4 max-w-2xl mx-auto">
+                Have questions? We've got answers.
+              </p>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              <Accordion type="single" collapsible className="w-full">
+                {faqData.map((faq, index) => (
+                  <AccordionItem value={`item-${index}`} key={index} className="glass-card mb-4 rounded-2xl px-6">
+                    <AccordionTrigger className="text-left font-headline text-xl hover:no-underline">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-base text-foreground/80 pt-2">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
           </div>
         </section>
         
