@@ -21,56 +21,56 @@ const servicesData: Service[] = [
     description: "A common basic haircut to keep you looking sharp.",
     price: 65,
     duration: 30,
-    icon: <Scissors className="size-8 text-accent" />,
+    icon: <Scissors className="size-8 text-accent transition-transform duration-300 group-hover:-rotate-45" />,
   },
   {
     name: "Beard Trim/Grooming",
     description: "Includes shaping and light trimming for a well-groomed beard.",
     price: 45,
     duration: 20,
-    icon: <Sparkles className="size-8 text-accent" />,
+    icon: <Sparkles className="size-8 text-accent transition-transform duration-300 group-hover:scale-125 group-hover:animate-pulse" />,
   },
   {
     name: "Clean Shave",
     description: "A classic clean shave for a smooth finish.",
     price: 150,
     duration: 30,
-    icon: <Wind className="size-8 text-accent" />,
+    icon: <Wind className="size-8 text-accent transition-transform duration-300 group-hover:translate-x-2" />,
   },
   {
     name: "Hair Coloring",
     description: "Hair coloring with premium dyes. Price varies by brand.",
     price: 199,
     duration: 60,
-    icon: <Paintbrush className="size-8 text-accent" />,
+    icon: <Paintbrush className="size-8 text-accent transition-transform duration-300 group-hover:rotate-12" />,
   },
   {
     name: "Hair Spa",
     description: "A premium treatment to rejuvenate your hair. Booking recommended.",
     price: 1200,
     duration: 90,
-    icon: <Spade className="size-8 text-accent" />,
+    icon: <Spade className="size-8 text-accent transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110" />,
   },
   {
     name: "Basic Facial/Cleanup",
     description: "Includes hydration, de-tan, charcoal, and more.",
     price: 800,
     duration: 60,
-    icon: <Droplets className="size-8 text-accent" />,
+    icon: <Droplets className="size-8 text-accent transition-transform duration-300 group-hover:animate-bounce" />,
   },
   {
     name: "Manicure/Pedicure",
     description: "Essential hand and foot care for a polished look.",
     price: 319,
     duration: 45,
-    icon: <Hand className="size-8 text-accent" />,
+    icon: <Hand className="size-8 text-accent transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />,
   },
   {
     name: "Grooming Combo",
     description: "The essentials: haircut, beard trim, and a relaxing face massage.",
     price: 499,
     duration: 75,
-    icon: <Users className="size-8 text-accent" />,
+    icon: <Users className="size-8 text-accent transition-transform duration-300 group-hover:scale-125" />,
   },
 ];
 
@@ -344,3 +344,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
