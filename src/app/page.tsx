@@ -67,6 +67,8 @@ const servicesData: Service[] = [
     price: 800,
     duration: 60,
     icon: <Droplets className="size-8 text-accent transition-transform duration-300 group-hover:animate-bounce" />,
+    image: "https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/4eae2589-269c-46b4-859b-0a5366dc87e1.png",
+    imageHint: "facial treatment"
   },
   {
     name: "Manicure/Pedicure",
@@ -366,3 +368,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
