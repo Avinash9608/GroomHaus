@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Playfair_Display } from "next/font/google";
+import { Outfit, Caveat } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
@@ -9,9 +9,8 @@ const fontBody = Outfit({
   variable: "--font-body",
 });
 
-const fontHeadline = Playfair_Display({
+const fontHeadline = Caveat({
   subsets: ["latin"],
-  style: ['normal', 'italic'],
   variable: "--font-headline",
 });
 
