@@ -21,7 +21,7 @@ const servicesData: Service[] = [
     description: "A common basic haircut to keep you looking sharp.",
     price: 65,
     duration: 30,
-    icon: <Scissors className="size-8 text-accent transition-transform duration-300 group-hover:-rotate-45" />,
+    icon: <Scissors className="size-8 text-accent transition-transform duration-300 group-hover:animate-snip" />,
   },
   {
     name: "Beard Trim/Grooming",
@@ -344,5 +344,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
