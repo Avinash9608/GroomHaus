@@ -97,9 +97,8 @@ export default function Home() {
             <Image
               src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGhhaXJjdXR8ZW58MHx8MHx8fDA%3D"
               alt="Man getting a professional haircut"
-              layout="fill"
-              objectFit="cover"
-              className="opacity-40"
+              fill
+              className="object-cover opacity-40"
               data-ai-hint="salon interior"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/20"></div>
@@ -230,8 +229,8 @@ export default function Home() {
                             <p>Sunday: Closed</p>
                         </div>
                     </div>
-                     <div className="h-96 w-full rounded-2xl overflow-hidden shadow-lg">
-                         <Image src="https://placehold.co/600x400.png" layout="fill" objectFit="cover" alt="Map location of Groom Haus" data-ai-hint="city map" />
+                     <div className="relative h-96 w-full rounded-2xl overflow-hidden shadow-lg">
+                         <Image src="https://placehold.co/600x400.png" fill className="object-cover" alt="Map location of Groom Haus" data-ai-hint="city map" />
                     </div>
                 </div>
             </div>
