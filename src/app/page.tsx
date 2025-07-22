@@ -40,6 +40,8 @@ const servicesData: Service[] = [
     price: 150,
     duration: 30,
     icon: <Wind className="size-8 text-accent transition-transform duration-300 group-hover:translate-x-2" />,
+    image: "https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/df792a7b-bff6-4067-a93d-d22b01831cb2.png",
+    imageHint: "classic shave"
   },
   {
     name: "Hair Coloring",
