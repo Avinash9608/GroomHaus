@@ -91,9 +91,19 @@ export default function Home() {
       <main className="flex-grow">
       <section
           id="home"
-          className="relative flex items-center justify-center min-h-screen bg-background text-white p-4"
+          className="relative flex items-center justify-center min-h-screen bg-background text-white p-4 overflow-hidden"
         >
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+           <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1648221122323-572c13a31663?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGhhaXJjdXR8ZW58MHx8MHx8fDA%3D"
+              alt="Blurred background of a stylish haircut"
+              fill
+              className="object-cover blur-md scale-110"
+              data-ai-hint="man haircut"
+            />
+            <div className="absolute inset-0 bg-background/70"></div>
+          </div>
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
             <div className="flex flex-col items-start gap-6 text-left px-4">
                 <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter animate-fade-in-down">
                     Experience Bespoke Grooming.
@@ -102,7 +112,7 @@ export default function Home() {
                     Where tradition meets modern technique. We are dedicated to providing the highest quality of service for the discerning gentleman.
                 </p>
             </div>
-            <div className="relative z-10 flex flex-col items-center justify-center gap-6">
+            <div className="relative flex flex-col items-center justify-center gap-6">
                  <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl shadow-accent/20 border-8 border-primary animate-fade-in-up">
                     <Image
                     src="https://images.unsplash.com/photo-1648221122323-572c13a31663?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGhhaXJjdXR8ZW58MHx8MHx8fDA%3D"
