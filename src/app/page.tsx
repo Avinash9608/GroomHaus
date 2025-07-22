@@ -85,6 +85,8 @@ const servicesData: Service[] = [
     price: 499,
     duration: 75,
     icon: <Users className="size-8 text-accent transition-transform duration-300 group-hover:scale-125" />,
+    image: "https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/42855a3b-d3c0-452d-8680-5d41945842d8.png",
+    imageHint: "grooming combo"
   },
 ];
 
