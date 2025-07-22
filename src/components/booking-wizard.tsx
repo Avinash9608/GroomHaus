@@ -14,6 +14,8 @@ export interface Service {
   price: number;
   duration: number;
   icon: React.ReactNode;
+  image?: string;
+  imageHint?: string;
 }
 
 interface BookingWizardProps {

@@ -22,6 +22,8 @@ const servicesData: Service[] = [
     price: 65,
     duration: 30,
     icon: <Scissors className="size-8 text-accent transition-transform duration-300 group-hover:animate-snip" />,
+    image: "https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/42bbb54b-4a15-4dfc-92e1-7049946ee4b5.png",
+    imageHint: "stylish haircut"
   },
   {
     name: "Beard Trim/Grooming",
@@ -233,8 +235,20 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {servicesData.map((service) => (
-                <Card key={service.name} className="glass-card overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/20">
-                  <CardContent className="p-6 flex flex-col items-center text-center">
+                <Card key={service.name} className="glass-card overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent/20 relative">
+                  {service.image && (
+                    <>
+                      <Image
+                        src={service.image}
+                        alt={service.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-ai-hint={service.imageHint}
+                      />
+                      <div className="absolute inset-0 bg-black/50" />
+                    </>
+                  )}
+                  <CardContent className="p-6 flex flex-col items-center text-center relative z-10">
                     <div className="p-4 bg-primary/50 rounded-full mb-6 transition-transform duration-300 group-hover:scale-110">
                       {service.icon}
                     </div>
