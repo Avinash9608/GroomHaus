@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Outfit, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 
-const fontBody = Inter({
+const fontBody = Outfit({
   subsets: ["latin"],
   variable: "--font-body",
 });
 
-const fontHeadline = Space_Grotesk({
+const fontHeadline = Playfair_Display({
   subsets: ["latin"],
-  weight: "700",
+  style: ['normal', 'italic'],
   variable: "--font-headline",
 });
 
