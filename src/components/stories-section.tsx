@@ -41,8 +41,18 @@ const stories = [
 
 export function StoriesSection() {
   return (
-    <section id="stories" className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="stories" className="relative py-20 md:py-32 bg-background">
+       <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1500531279542-fc8490c8ea4d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjkzfHx3YWxscGFwZXIlMjA0a3xlbnwwfHwwfHx8MA%3D%3D"
+              alt="Abstract background"
+              fill
+              className="object-cover"
+              data-ai-hint="abstract texture"
+            />
+            <div className="absolute inset-0 bg-background/80"></div>
+        </div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-accent">Our Stories</h2>
           <p className="text-lg text-foreground/70 mt-4 max-w-3xl mx-auto">
