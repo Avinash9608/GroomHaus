@@ -483,7 +483,7 @@ export default function Home() {
                     </div>
                      <div className="relative h-96 w-full rounded-2xl overflow-hidden shadow-lg">
                         <a href="https://www.google.com/maps/search/?api=1&query=Lakhna+Sabji+Market+804453+Patna" target="_blank" rel="noopener noreferrer">
-                         <Image src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/45dab4a0-54ee-4f77-bb74-f6b582c912e0.png" fill className="object-cover" alt="Map location of Groom Haus" data-ai-hint="salon interior" />
+                         <Image src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/52c5be1e-8461-45f4-9872-f9ec0cfedbda.png" fill className="object-cover" alt="Map location of Groom Haus" data-ai-hint="salon exterior" />
                         </a>
                     </div>
                 </div>
@@ -495,3 +495,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
