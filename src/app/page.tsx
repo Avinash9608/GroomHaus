@@ -98,21 +98,21 @@ const testimonials = [
   {
     name: "John D.",
     avatar: "JD",
-    image: "https://placehold.co/100x100.png",
+    image: "https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFufGVufDB8fDB8fHww",
     hint: "man portrait",
     text: "The best haircut I've ever had. The attention to detail is unmatched. I'll be a regular for sure.",
   },
   {
     name: "Mike S.",
     avatar: "MS",
-    image: "https://placehold.co/100x100.png",
+    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww",
     hint: "smiling man",
     text: "Truly a premium experience from start to finish. The booking was seamless and the service was top-notch.",
   },
   {
     name: "Alex R.",
     avatar: "AR",
-    image: "https://placehold.co/100x100.png",
+    image: "https://plus.unsplash.com/premium_photo-1664533227571-cb18551cac82?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWFufGVufDB8fDB8fHww",
     hint: "gentleman portrait",
     text: "I tried the AI recommendations and found my new favorite service! The staff is incredibly professional.",
   },
@@ -410,7 +410,7 @@ export default function Home() {
                       <Card className="glass-card">
                         <CardContent className="flex flex-col items-center justify-center p-8 md:p-12 text-center">
                           <Avatar className="w-24 h-24 mb-6 border-4 border-accent/50">
-                            <AvatarImage src={testimonial.image} data-ai-hint={testimonial.hint} />
+                            <AvatarImage src={testimonial.image} data-ai-hint={testimonial.hint} className="object-cover" />
                             <AvatarFallback>{testimonial.avatar}</AvatarFallback>
                           </Avatar>
                           <div className="flex mb-4">
@@ -481,9 +481,9 @@ export default function Home() {
                             <p>Sunday: Closed</p>
                         </div>
                     </div>
-                     <div className="w-full rounded-2xl overflow-hidden shadow-lg">
+                     <div className="w-full h-full rounded-2xl overflow-hidden shadow-lg">
                         <a href="https://www.google.com/maps/search/?api=1&query=Lakhna+Sabji+Market+804453+Patna" target="_blank" rel="noopener noreferrer">
-                         <Image src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/52c5be1e-8461-45f4-9872-f9ec0cfedbda.png" width={800} height={600} className="w-full h-auto" alt="Map location of Groom Haus" data-ai-hint="salon exterior" />
+                         <Image src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/52c5be1e-8461-45f4-9872-f9ec0cfedbda.png" width={800} height={600} className="w-full h-auto object-cover" alt="Map location of Groom Haus" data-ai-hint="salon exterior" />
                         </a>
                     </div>
                 </div>
