@@ -20,8 +20,8 @@ const stories = [
     excerpt: "\"GroomHaus gave me a style that finally felt like me.\"",
   },
   {
-    image: "https://images.unsplash.com/photo-1520409364224-63400AF25468?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    hint: "father son",
+    image: "https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/eef5f3d2-fbae-4ced-800f-8df7693c1d0d.png",
+    hint: "father and son",
     headline: "Father-Son Makeover",
     excerpt: "\"Bonding over style and care at GroomHaus was an unforgettable experience.\"",
   },
