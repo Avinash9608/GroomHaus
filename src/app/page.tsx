@@ -432,8 +432,18 @@ export default function Home() {
           </div>
         </section>
         
-        <section id="testimonials" className="py-20 md:py-32 bg-primary/10">
-          <div className="container mx-auto px-4">
+        <section id="testimonials" className="py-20 md:py-32 relative">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1608403890614-ec62cb35b46e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTU5fHxmdWxsJTIwaGQlMjB3YWxscGFwZXJ8ZW58MHx8MHx8fDA%3D"
+              alt="Abstract testimonials background"
+              fill
+              className="object-cover"
+              data-ai-hint="abstract texture"
+            />
+            <div className="absolute inset-0 bg-background/80" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
               <h2 className="font-headline text-4xl md:text-5xl font-bold">What Our Clients Say</h2>
             </div>
@@ -531,3 +541,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
